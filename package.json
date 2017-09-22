@@ -1,0 +1,129 @@
+{
+  "author": "Sam Waters",
+  "description": "React Starter Project",
+  "license": "GPL-3.0",
+  "name": "react-starter",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:samwaters/react-starter.git"
+  },
+  "version": "1.1.0",
+  "scripts": {
+    "build.dev": "webpack --config webpack.dev.js -d",
+    "build.prod.notest": "webpack --config webpack.prod.js",
+    "build.prod": "npm run test && webpack --config webpack.prod.js",
+    "devserver": "webpack-dev-server --config webpack.dev.js",
+    "start": "nodemon server/dev.js",
+    "test": "jest --no-cache"
+  },
+  "dependencies": {
+    "babel-polyfill": "~6.26.0",
+    "webpack-dev-server": "~2.8.2"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.11",
+    "@types/core-js": "0.9.36",
+    "@types/classnames": "^2.2.3",
+    "@types/material-ui": "^0.18.1",
+    "@types/promise": "^7.1.30",
+    "@types/react": "^16.0.5",
+    "@types/react-dom": "^15.5.4",
+    "@types/react-redux": "^5.0.9",
+    "@types/react-router": "^4.0.15",
+    "@types/react-router-dom": "^4.0.7",
+    "@types/react-router-redux": "^5.0.8",
+    "awesome-typescript-loader": "^3.2.3",
+    "babel-core": "~6.26.0",
+    "babel-eslint": "~8.0.0",
+    "babel-jest": "~21.0.2",
+    "babel-loader": "~7.1.2",
+    "babel-plugin-transform-object-rest-spread": "~6.26.0",
+    "babel-preset-env": "~1.6.0",
+    "babel-preset-react": "~6.24.1",
+    "body-parser": "~1.18.2",
+    "classnames": "~2.2.5",
+    "compression": "~1.7.0",
+    "css-loader": "~0.28.7",
+    "cssjson": "~2.1.3",
+    "enzyme": "~2.9.1",
+    "eslint": "~4.7.2",
+    "eslint-loader": "~1.9.0",
+    "eslint-plugin-react": "~7.3.0",
+    "express": "~4.15.4",
+    "extract-text-webpack-plugin": "~3.0.0",
+    "file-loader": "~0.11.2",
+    "history": "~4.7.2",
+    "jest": "~21.1.0",
+    "material-ui": "^0.19.2",
+    "modules-values-extract": "~1.0.3",
+    "nodemon": "~1.12.1",
+    "normalize.css": "~7.0.0",
+    "object.values": "^1.0.4",
+    "optimize-css-assets-webpack-plugin": "~3.2.0",
+    "postcss": "~6.0.11",
+    "postcss-css-variables": "~0.8.0",
+    "postcss-cssnext": "~3.0.2",
+    "postcss-flexbugs-fixes": "~3.2.0",
+    "postcss-flexibility": "~2.0.0",
+    "postcss-import": "~11.0.0",
+    "postcss-loader": "~2.0.6",
+    "postcss-modules-values": "~1.3.0",
+    "postcss-nested": "~2.1.2",
+    "postcss-simple-vars": "^4.1.0",
+    "prop-types": "~15.5.10",
+    "react": "~15.6.1",
+    "react-dom": "~15.6.1",
+    "react-redux": "~5.0.6",
+    "react-router": "~4.2.0",
+    "react-router-dom": "~4.2.2",
+    "react-router-redux": "~5.0.0-alpha.6",
+    "react-transition-group": "~2.2.0",
+    "react-addons-test-utils": "~15.6.0",
+    "react-style-proptype": "~3.0.0",
+    "react-test-renderer": "~15.6.1",
+    "redux": "~3.7.2",
+    "redux-mock-store": "~1.3.0",
+    "redux-thunk": "~2.2.0",
+    "reselect": "~3.0.1",
+    "source-map-loader": "^0.2.1",
+    "style-loader": "~0.18.2",
+    "typed-css-modules": "^0.3.0",
+    "typescript": "^2.5.2",
+    "url-loader": "~0.5.9",
+    "webpack": "~3.6.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "client/**/*.{js,jsx}"
+    ],
+    "moduleFileExtensions": [
+      "css",
+      "js",
+      "json",
+      "jsx",
+      "scss"
+    ],
+    "moduleNameMapper": {
+      "^.*[.](jpg|gif|png|css)$": "EmptyModule"
+    },
+    "testMatch": [
+      "**/__tests__/*.js"
+    ],
+    "transform": {
+      ".jsx?$": "<rootDir>/node_modules/babel-jest",
+      ".s?css$": "<rootDir>/jest.preprocessor.js"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils",
+      "<rootDir>/node_modules/redux",
+      "<rootDir>/node_modules/react-redux",
+      "<rootDir>/client/app/EmptyModule.js"
+    ]
+  }
+}

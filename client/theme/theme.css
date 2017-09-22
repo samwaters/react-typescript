@@ -1,0 +1,5 @@
+@value colours: './colours.css';
+@value colour1, colour2 from colours;
+
+@value colourPrimary: color1;
+@value colourSecondary: color2;

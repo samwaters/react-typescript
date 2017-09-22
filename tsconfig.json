@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "paths": {
+      "actions/*": ["client/app/actions/*"],
+      "components/*": ["client/app/components/*"],
+      "reducers/*": ["client/app/reducers/*"],
+      "selectors/*": ["client/app/selectors/*"]
+    },
+    "target": "es5",
+    "sourceMap": true
+  },
+  "include": [
+    "./client/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

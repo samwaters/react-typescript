@@ -1,0 +1,7 @@
+.idea
+coverage
+dist/app.*
+dist/bundle.*
+dist/vendor.*
+node_modules
+__snapshots__
