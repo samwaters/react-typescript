@@ -1,9 +1,9 @@
-const extractValues = require('modules-values-extract');
+const extractValues = require('modules-values-extract-6');
 const path = require('path');
 const themeVariables = {};
 
 module.exports = extractValues({
-	files: [path.join(__dirname, 'client', 'theme', 'theme.css')],
+	files: [path.join(__dirname, 'client', 'theme', 'theme.css')]
 }).then(
 	variables => {
 		Object.keys(variables).forEach(key => themeVariables['--' + key] = variables[key]);

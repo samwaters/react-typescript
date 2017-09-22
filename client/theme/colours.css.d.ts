@@ -1,2 +1,7 @@
-export const colour1: string;
-export const colour2: string;
+interface Styles {
+[name:string]:string;
+colour1: string;
+colour2: string;
+}
+declare var styles:Styles;
+export = styles;

@@ -7,7 +7,7 @@ import createHistory from 'history/createHashHistory';
 import {Route} from 'react-router';
 import {ConnectedRouter, routerMiddleware} from 'react-router-redux';
 // Redux
-import appReducers from './reducers/index';
+import {appReducers} from 'reducers/index';
 import {applyMiddleware, createStore, compose} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';

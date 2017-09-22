@@ -1,21 +1,18 @@
-interface IAction {
-	type:string,
-	payload?:any
-}
+import IAction from "reducers/action.interface";
 
-interface IState {
+interface IAuthState {
 	loggedIn:boolean
 }
 
-const initialState:IState = {
+const initialState:IAuthState = {
 	loggedIn: false
 };
 
-const authReducer = (state:IState = initialState, action:IAction):IState => {
+const authReducer = (state:IAuthState = initialState, action:IAction):IAuthState => {
 	switch(action.type) {
 		default:
 			return state;
 	}
 };
 
-export default authReducer;
+export {authReducer, IAuthState};

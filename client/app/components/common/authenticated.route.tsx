@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {Redirect, Route} from 'react-router-dom';
+import {IAppState} from "reducers/index";
 
 interface IAuthenticatedRoute {
 	component?:any;
@@ -30,7 +31,7 @@ class AuthenticatedRoute extends React.Component<IAuthenticatedRoute, {}> {
 }
 
 export default connect(
-    (state:any) => {
+    (state:IAppState) => {
         return {
             loggedIn: state.auth.loggedIn
         }

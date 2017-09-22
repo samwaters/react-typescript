@@ -55,7 +55,7 @@
     "history": "~4.7.2",
     "jest": "~21.1.0",
     "material-ui": "^0.19.2",
-    "modules-values-extract": "~1.0.3",
+    "modules-values-extract-6": "~1.0.0",
     "nodemon": "~1.12.1",
     "normalize.css": "~7.0.0",
     "object.values": "^1.0.4",

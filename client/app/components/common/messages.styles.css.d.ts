@@ -1,10 +1,15 @@
-export const message: string;
-export const errorMessage: string;
-export const infoMessage: string;
-export const successMessage: string;
-export const warningMessage: string;
-export const icon: string;
-export const errorIcon: string;
-export const infoIcon: string;
-export const successIcon: string;
-export const warningIcon: string;
+interface Styles {
+[name:string]:string;
+message: string;
+errorMessage: string;
+infoMessage: string;
+successMessage: string;
+warningMessage: string;
+icon: string;
+errorIcon: string;
+infoIcon: string;
+successIcon: string;
+warningIcon: string;
+}
+declare var styles:Styles;
+export = styles;

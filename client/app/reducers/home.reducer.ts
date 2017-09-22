@@ -1,19 +1,15 @@
 import * as actions from '../actions/home.actions';
+import IAction from "reducers/action.interface";
 
-interface IAction {
-	type:string,
-	payload?:any
-}
-
-interface IState {
+interface IHomeState {
 	time: number
 }
 
-const initialState = {
+const initialState:IHomeState = {
 	time: 0
 };
 
-const homeReducer = (state:IState = initialState, action:IAction):IState => {
+const homeReducer = (state:IHomeState = initialState, action:IAction):IHomeState => {
 	switch(action.type) {
 		case actions.ACTIONS.STORE_TIME:
 			return {
@@ -25,4 +21,4 @@ const homeReducer = (state:IState = initialState, action:IAction):IState => {
 	}
 };
 
-export default homeReducer;
+export {homeReducer, IHomeState};
