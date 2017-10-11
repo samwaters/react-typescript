@@ -1,10 +1,10 @@
-# React Starter
+# React Starter with Typescript
  Quick start react seed project to speed up development  
  Set up:
  * React
  * Redux (with thunk)
- * React Toolbox (for Material UI components)
- * 12 column grid system for responsive UI
+ * Typescript
+ * Material-UI (for Material UI components and responsive design)
  * Express server or webpack-dev-server with Hot Module Replacement (HMR)
  * Unit Tests (with Jest, Enzyme and a mock store)
  
@@ -19,7 +19,6 @@
      - [Routing](#routing)
        - [Router State in Redux](#router-state-in-redux)
        - [Authentication](#authentication)
-     - [Responsive Grid](#responsive-grid)
      - [Theming](#theming)
      - [Tests](#tests)
    - [Server Structure](#server-structure)
@@ -54,33 +53,24 @@
    The app root (`client/app/index.tsx`) sets up the root of the application (container and child routes).  
    No logic should be present here; just the initialisation of the app.  
 ### Components  
-   Components are located under the `components` folder and are [standard React components](https://facebook.github.io/react/docs/react-component.html).  
-   Where possible, the components should use local state rather than redux store.  
+   Components are located under the `components` folder and are [standard React components](https://facebook.github.io/react/docs/react-component.html).    
    Any components that need access to the redux store can do so with `connect`
 ### Redux Store
   Store bindings are provided via `react-redux`, with components using the [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) method to bind state and actions.  
   `redux-thunk` is also set up, allowing for actions to [dispatch other actions](https://github.com/gaearon/redux-thunk).  
   Action creators are located under the `actions` folder.  
   Reducers are located under the `reducers` folder.  
-  If any selectors are required, `reselect` is also included.  
+  If any selectors are required, [reselect](https://www.npmjs.com/package/reselect) is also included.  
 ### Routing  
-   Routing is done with `react-router`, with routes defined in `routes.js`.  
-   Utilizing `react-router`'s nested route functionality allows for a container around the displayed component(s).  
+   Routing is done with [react-router v4](https://www.npmjs.com/package/react-router), with routes defined in components, and the main route in `app.tsx`.  
+   Utilizing `<Switch>` directives, each component can render sub-routes as required.  
 #### Router State in Redux
-   Router state is synced with the store using `react-router-redux`, which also allows for routing within actions (for example routing back to the login page on session timeout).  
+   Router state is synced with the store using [react-router-redux 5](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux), which also allows for routing within actions (for example routing back to the login page on session timeout).  
    See [the docs](https://github.com/reactjs/react-router-redux) for more details.  
 #### Authentication
-   Routes support checks before activating, and can navigate away if the checks fail. See `routes.js` for an example.  
-### Responsive Grid
-   A 12 column grid component is included, following the Material Design spec, allowing for easy responsive design.  
-   See the home page for an example.  
+   Routes support checks before activating, and can navigate away if the checks fail. See `app.tsx` for an example.  
 ### Theming
-   `react-toolbox` provides most of the styles for [Material Design](https://material.io/guidelines/) out of the box, so the only customization necessary should be colours.  
-   Overrides for colours are in `theme/overrides.css` and should be enough for customizing the majority of the site.  
-   Global site styles are in `theme/theme.scss` and can be used for non-component-specific things.  
-   
-   See [React Toolbox Components](http://react-toolbox.com/#/components) for more information on individual components  
-   Developer notes are also included in `themes/overrides.css`  
+   `material-ui` handles theming out of the box - see [the docs](http://www.material-ui.com/#/customization/themes)
 ### Tests
    Tests are located under the `__tests__` folder alongside the related component(s), and are largely up to the developer to write.  
    `enzyme` and `mock-redux-store` are included to allow for more comprehensive tests - see the home component test for an example.  
@@ -95,17 +85,17 @@
    Webpack dev server with hot module replacement enabled - only serves the dev bundle.  
    API requests are proxied through to the express server, so this will need to be running if any are required.  
 ## Build System
- The project is built using Webpack 2 and can be built in development or production mode  
+ The project is built using Webpack 3 and can be built in development or production mode  
  All output files are placed in the `dist` folder
 ### Development Mode
-  `npm run build.dev`  
+  `yarn run build.dev`  
   Generates a single artifact with the css bundled into it. Source maps are included and it is not minified.  
 
 #### Development Mode Notes
   * This bundle will be big (about 7.5mb) - therefore it should _not_ be used in production
 
 ### Production Mode
-  `npm run build.prod`  
+  `yarn run build.prod`  
   Generates two bundles (app and vendor) for both css and javascript. Source maps are not included, the javascript bundles are minified and the css bundles are optimized.  
   The app bundle contains the code related to the application, while the vendor bundle contains all of the supporting libraries.  
   This will also run the test suite and will abort if any tests fail.  
@@ -115,7 +105,7 @@
   * When served with gzip, this decreases to around 180kb javascript and 25kb css
 
 ### Testing
-  `npm run test`  
+  `yarn run test`  
   Runs all the tests in the `tests` folder and displays the results, followed by a coverage report  
   This can be run manually, but is also run when doing a production build
 ## Technical Details
@@ -123,11 +113,11 @@
  * `package.json` contains the build scripts
  * `build.dev` runs webpack using config `webpack.dev.js`, which builds a single artifact
    * JS is not minified and source maps are included
-   * CSS toolchain is sass-loader -> postcss-loader -> css->loader -> style-loader
+   * CSS toolchain is postcss-loader -> css->loader -> style-loader
  * `build.prod` runs webpack using `webpack.prod.js`, which builds chunked JS and CSS
    * JS is minified and source maps are not included
    * Vendor (3rd party) code is split into a separate JS file  
-   * CSS toolchain is sass-loader -> postcss-loader -> css-loader -> extract-text-webpack-plugin -> [app|vendor].prod.css -> optimize-css-assets-plugin
+   * CSS toolchain is postcss-loader -> css-loader -> extract-text-webpack-plugin -> [app|vendor].prod.css -> optimize-css-assets-plugin
 
 ### Known Issues
- * Deprecation warning from `loaderUtils.parseQuery()` due to api change - [issue details](https://github.com/webpack/loader-utils/issues/56) 
+ * None at this time 
