@@ -28,7 +28,7 @@ const initialState:IThemeState = {
             accent1Color: colours.green1,
             accent2Color: colours.green2,
             accent3Color: colours.green3,
-            textColor: colours.white,
+            textColor: colours.black,
             alternateTextColor: colours.white
         },
         "theme2": {
@@ -39,7 +39,7 @@ const initialState:IThemeState = {
             accent2Color:colours.blue2,
             accent3Color:colours.blue3,
             textColor:colours.black,
-            alternateTextColor:colours.black
+            alternateTextColor:colours.white
         },
         "theme3": {
             primary1Color:colours.pink1,
@@ -48,7 +48,7 @@ const initialState:IThemeState = {
             accent1Color:colours.yellow1,
             accent2Color:colours.yellow2,
             accent3Color:colours.yellow3,
-            textColor:colours.white,
+            textColor:colours.black,
             alternateTextColor:colours.white
         }
     }
