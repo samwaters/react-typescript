@@ -24,7 +24,8 @@ class Home extends React.Component<HomeProps, {}> {
                 </Col>
                 <Col sm={12} md={6}>
                     <p>Current timestamp: {this.props.time}</p>
-                    <RaisedButton primary onClick={() => this.props.getTime()}>Refresh Time</RaisedButton>
+                    <RaisedButton label="Refresh Time" primary onClick={() => this.props.getTime()} />
+                    <RaisedButton label="Refresh Time (2)" secondary onClick={() => this.props.getTime()} />
                 </Col>
             </Row>
         </div>
