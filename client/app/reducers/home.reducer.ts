@@ -1,5 +1,5 @@
-import * as actions from '../actions/home.actions';
-import IAction from "reducers/action.interface";
+import * as actions from 'actions/home.actions';
+import {IAction} from 'actions/action.interface';
 
 interface IHomeState {
 	time: number
