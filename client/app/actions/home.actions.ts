@@ -1,4 +1,4 @@
-import {ajaxCall} from './ajax.actions';
+import ajaxCall from './ajax.actions';
 
 export const ACTIONS = {
 	REQUEST_TIME: 'REQUEST_TIME',
@@ -6,7 +6,12 @@ export const ACTIONS = {
 };
 
 const requestTime = () => {
-	return ajaxCall('/api/time', 'GET', '', storeTime());
+	return ajaxCall({
+		data: '',
+		method: 'GET',
+		nextAction: storeTime(),
+		url: '/api/time'
+	});
 };
 
 const storeTime = () => {

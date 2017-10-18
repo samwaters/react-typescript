@@ -1,4 +1,4 @@
-import IAction from "reducers/action.interface";
+import {IAction} from 'actions/action.interface';
 
 export const ACTIONS = {
     SET_THEME: 'SET_THEME'
